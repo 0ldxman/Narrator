@@ -1,0 +1,67 @@
+type race:humanoid {
+    identity {
+        label = "Humanoid"
+        description = "A race of humans"
+    }
+
+    body {
+        torso = null
+        head = null
+        neck = null
+    }
+}
+
+type race:humanoid:human {
+    identity {
+        label = "Human"
+        description = "A human being"
+    }
+    // У человека есть поле body которое исходит из race:humanoid
+}
+
+type race:humanoid:elf {
+    identity {
+        label = "Elf"
+        description = "A elf being"
+    }
+    // У elf есть поле body которое исходит из race:humanoid НО
+    body:elf_organ = null // Добавили новую часть тела которой нет в humanoid
+}
+
+type race:ork {
+    identity {
+        label = "Ork"
+        description = "A ork being"
+    }
+    body:@type:race:humanoid:body
+}
+
+entity item31231 {
+    identity {
+        label = "Item31231"
+    }
+}
+
+entity john_snow228 {
+    identity {
+        first_name = "John"
+        last_name = "Snow"
+        middle_name = ""
+    }
+    race = @type:race:humanoid:human
+    inventory:@entity:item31231
+    body:torso:headiff = @type:headiff:injury:shotgun_injury {
+        current_severity = 50
+    }
+    skills {
+        @type:skill:shotgun {
+            current_level = 100
+        }
+        @type:skill:gun {
+            current_level = 100
+        }
+        @type:skill:pistol {
+            current_level = 100
+        }
+    }
+}

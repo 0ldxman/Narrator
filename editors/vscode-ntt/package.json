@@ -1,0 +1,34 @@
+{
+    "name": "ntt-syntax",
+    "displayName": "NTT Language Support",
+    "description": "Syntax highlighting for NTT files",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "ntt",
+                "aliases": [
+                    "NTT",
+                    "ntt"
+                ],
+                "extensions": [
+                    ".ntt"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "ntt",
+                "scopeName": "source.ntt",
+                "path": "./syntaxes/ntt.tmLanguage.json"
+            }
+        ]
+    }
+}

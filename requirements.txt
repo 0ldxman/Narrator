@@ -1,1 +1,1 @@
-# Add your dependencies here
+lz4>=4.3.2

@@ -1,0 +1,108 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "NTT",
+	"patterns": [
+		{ "include": "#comments" },
+		{ "include": "#keywords" },
+		{ "include": "#strings" },
+		{ "include": "#constants" },
+		{ "include": "#dice" },
+		{ "include": "#numbers" },
+		{ "include": "#operators" },
+		{ "include": "#paths" }
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.number-sign.ntt",
+					"match": "#.*$"
+				},
+				{
+					"name": "comment.line.double-slash.ntt",
+					"match": "//.*$"
+				},
+				{
+					"name": "comment.block.ntt",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.ntt",
+					"match": "\\b(import|type|entity)\\b"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.ntt",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.ntt",
+							"match": "\\\\."
+						}
+					]
+				},
+				{
+					"name": "string.quoted.single.ntt",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.ntt",
+							"match": "\\\\."
+						}
+					]
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.language.ntt",
+					"match": "\\b(true|false|null)\\b"
+				}
+			]
+		},
+		"dice": {
+			"patterns": [
+				{
+					"name": "constant.numeric.dice.ntt",
+					"match": "\\b\\d+d\\d+([+\\-]\\d+)?\\b"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.ntt",
+					"match": "\\b\\d+(\\.\\d+)?\\b"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.ntt",
+					"match": "[\\+\\-\\*\\/=<\\>:]"
+				}
+			]
+		},
+		"paths": {
+			"patterns": [
+				{
+					"name": "variable.other.member.ntt",
+					"match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "source.ntt"
+}
